@@ -1,0 +1,12 @@
+pages:
+  stage: deploy
+  script:
+    - mkdir .pub
+    - cp -r ./* .pub
+    - rm -rf public
+    - mv .pub public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRACH == main
